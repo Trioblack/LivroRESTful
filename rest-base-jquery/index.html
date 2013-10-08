@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Teste jquery</title>
+</head>
+<body>
+
+	<form>
+		<input id="inputNome" type="text"  size="30"/>
+		<input id="btn" type="button" value="Say hello"/>
+	</form>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+
+	$("#btn").click(function(){
+
+		nome = $("#inputNome").val();
+
+		$.ajax({
+			type: "GET",
+			url: "http://localhost/slim/Teste/helloWorld/" + nome,
+			dataType:"json",
+			success: function(data,textStatus,jqXHR){
+				console.log(data);
+				alert(data.result);
+			}
+		});
+	})
+	</script>
+</body>
+</html>
