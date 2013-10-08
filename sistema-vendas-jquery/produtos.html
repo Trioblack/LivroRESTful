@@ -1,0 +1,206 @@
+
+<style type="text/css">
+    .categoriaEdit{
+        margin-left:2px;
+    }
+</style>
+
+
+<h2>Produtos</h2>
+
+<div class="input-append">
+    <input class="input-xxlarge " id="filtrar" type="text" placeholder="Nome do produto">
+    <button id="btnBuscar" class="btn" type="button">Filtrar</button>
+    <button id="btnNovo" class="btn btn-primary" type="button">Novo</button>
+</div>
+
+<button id="btnCategoria" class="btn btn-info pull-right" type="button">Categorias</button> 
+<button id="btnFornecedor" class="btn btn-info pull-right" type="button">Fornecedores</button>
+
+<div>
+
+    <div id="errorLoad" class="alert alert-error" style="display:none"></div>
+
+    <table id="tableProdutos" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th width="20">Código</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th width="10"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="">Mark</a></td>
+                <td>Otto</td>
+                <td><a href="#"><i class="icon-trash"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+<div class="modal fade" id="novoModal" style="display: none;">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3>Produto</h3>
+    </div>
+    <div class="modal-body">
+
+        <div id="saveMessage" class="alert alert-success" style="display:none">
+            <img src="img/ajax-loader.gif"> Salvando dados...
+        </div>
+
+        <form id="form" class="form-horizontal well">
+            <input type="hidden" id="inputId" value="0">
+            
+
+            <div id="errorEmpty" class="alert alert-error" style="display:none">
+                Campos requeridos
+            </div>
+
+            <div id="errorServer" class="alert alert-error" style="display:none"></div>
+
+
+            <div class="control-group">
+                <label class="control-label" for="inputNome">Nome</label>
+                <div class="controls">
+                    <input type="text" id="inputNome" class="input-block-level">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputCodigo">Código</label>
+                <div class="controls">
+                    <input type="text" id="inputCodigo" class="input-block-level">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="selectCategoria">Categoria</label>
+                <div class="controls">
+                    <select id="selectCategoria" class="input-xlarge"></select>
+                    <input id="btnCategoria2" type="button" value="+"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="selectFornecedor">Fornecedor</label>
+                <div class="controls">
+                    <select id="selectFornecedor" class="input-xlarge"></select>
+                    <input id="btnFornecedor2" type="button" value="+"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputQuantidade">Quantidade</label>
+                <div class="controls">
+                    <input type="number" id="inputQuantidade" class=" input-mini">
+                    Qtde. Mínima:
+                    <input type="number" id="inputQuantidadeMinima" class="input-mini">
+                    <input name="checkAtivo" type="checkbox" value="bar" checked/> Ativo
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputPrecoUnitario">Preço Unitário</label>
+                <div class="controls">
+                    <input type="text" id="inputPrecoUnitario" class="moeda input-small">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputDescricao">Descrição</label>
+                <div class="controls">
+                    <textarea id="inputDescricao" class="input-block-level" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a id="salvar" href="#" class="btn btn-primary">Salvar</a>
+    </div>
+</div>
+
+
+<!-- Modal Categoria  -->
+
+<div class="modal fade" id="categoriaModal" style="display: none;">
+
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3>Categorias</h3>
+        <span>Clique na categoria para editá-la</span>
+    </div>
+
+    <div class="modal-body">
+
+        <div id="loadCategoria" class="alert alert-success" style="display:none">
+            <img src="img/ajax-loader.gif"> Aguarde...
+        </div>
+
+        <div id="listCategorias"></div>
+        <br/>
+        <div id="errorlistCategorias" class="alert alert-error" style="display:none"></div>
+
+        <form class="form-horizontal well">
+            <input id="hiddenCategoriaId" type="hidden" value="0"/>
+            <input id="inputCategoriaNome" type="text" class="input-large" placeholder="Categoria">
+            <button id="btnSalvarCategoria" type="button" class="btn btn-primary">Salvar</button>
+            <a id="linkNovaCategoria" href="#">Nova Categoria</a>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <a data-dismiss="modal" href="#" class="btn btn-inverse">Fechar</a>
+    </div>
+</div>
+
+<!-- Modal Fornecedor -->
+<div class="modal fade" id="fornecedorModal" style="display: none;">
+
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3>Fornecedores</h3>
+        <p>Escolha um fornecedor abaixo para editá-lo</p>
+    </div>
+
+    <div class="modal-body">
+
+        <div id="loadFornecedor" class="alert alert-success" style="display:none">
+            <img src="img/ajax-loader.gif"> Aguarde...
+        </div>
+
+        <div id="errorFornecedor" class="alert alert-error" style="display:none"></div>
+
+
+        <form id="form" class="form-vertical well">
+            <input type="hidden" id="inputId">
+            <input type="hidden" id="inputIdUsuario">
+
+
+            <select id="selectFornecedor2" class="input-block-level"></select>
+
+
+            <hr/>
+
+            <input type="hidden" id="hiddenIdFornecedor" value="0"/>
+            <input type="text" id="inputNomeFornecedor" class="span3" placeholder="Fornecedor">
+            <input type="text" id="inputCnpjFornecedor" class="span3" placeholder="Cnpj">
+
+        </form>
+
+
+    </div>
+    <div class="modal-footer">
+        <div class="pull-left">
+            <button id="btnSalvarFornecedor" type="button" class="btn btn-primary">Salvar</button>
+            <a id="linkNovoFornecedor" href="#">Novo</a>
+        </div>
+        <a data-dismiss="modal" href="#" class="btn btn-inverse">Fechar</a>
+    </div>
+</div>
+
+
+

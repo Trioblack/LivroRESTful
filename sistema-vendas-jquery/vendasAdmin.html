@@ -1,0 +1,101 @@
+
+<style>
+    .alert-gray{
+        background-color: #aaa;
+    }
+    .alert{
+        margin-bottom: 1px;
+    }
+</style>
+
+<h2>Vendas</h2>
+
+<div class="row">
+
+    <!--
+    <div class="span4 well">
+        <h4>Consulta por datas</h4>
+        <form>
+            <div class="controls">
+                <input type="text" id="dataInicial" class="input-small">
+                <input type="text" id="dataFinal" class="input-small">
+            </div>
+            <div>
+                <button type="button" class="btn btn-info pull-right">Buscar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="span3 well">
+        <h4>Consulta por Vendedor</h4>
+        <form>
+            <div class="controls">
+                <select id="selectVendedor" class="input-large"></select>
+            </div>
+            <div>
+                <button type="button" class="btn btn-info pull-right">Buscar</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="span3 well">
+        <h4>Consulta por Cliente</h4>
+        <form>
+            <div class="controls">
+                <select id="selectCliente" class="input-large"></select>
+            </div>
+            <div>
+                <button type="button" class="btn btn-info pull-right">Buscar</button>
+            </div>
+        </form>
+
+    </div>
+    -->
+
+
+</div>
+
+<div>
+    <table id="tableVendas" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th width="10"></th>
+                <th width="10%">Data</th>
+                <th>Vendedor</th>
+                <th>Cliente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href=""><i class="icon-info-sign"></i></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="errorVenda" class="alert alert-error" style="display:none"></div>
+
+<div id="detalhes" class="" style="display: none">
+    <h3>Detalhes</h3>
+    <div class="well">
+        <dl id="detalhes_venda" class="dl-horizontal">
+
+
+        </dl>
+    </div>
+    <h3>Produtos vendidos</h3>
+    <div id="itens" class="well span9 offset1">
+
+    </div>
+    
+</div>
+
+
+
+
+

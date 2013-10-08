@@ -4,5 +4,5 @@
 
 define("DB_HOST", "localhost");
 define("DB_NAME", "vendas");
-define("DB_USER", "root");
+define("DB_USER", "fuentes");
 define("DB_PASSWORD", "root");

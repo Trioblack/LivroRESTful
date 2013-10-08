@@ -1,0 +1,99 @@
+
+
+<h2>Clientes</h2>
+
+<div class="input-append">
+    <input class="input-xxlarge " id="filtrar" type="text" placeholder="Nome do cliente">
+    <button id="btnBuscar" class="btn" type="button">Filtrar</button>
+    <button id="btnNovo" class="btn btn-primary" type="button">Novo</button>
+</div>
+
+<div>
+    <table id="tableClientes" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Login</th>
+                <th width="10"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="">Mark</a></td>
+                <td>Otto</td>
+                <td><a href="#"><i class="icon-trash"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="modal fade" id="novoModal" style="display: none;">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">&times;</a>
+            <h3>Cliente</h3>
+        </div>
+        <div class="modal-body">
+
+            <div id="saveMessage" class="alert alert-success" style="display:none">
+                <img src="img/ajax-loader.gif"> Salvando dados...
+            </div>
+
+            <form id="form" class="form-horizontal well">
+                <input type="hidden" id="inputId">
+                <input type="hidden" id="inputIdUsuario">
+
+                <div id="errorEmpty" class="alert alert-error" style="display:none">
+                    Campos requeridos
+                </div>
+
+                <div id="errorServer" class="alert alert-error" style="display:none"></div>
+
+
+                <div class="control-group">
+                    <label class="control-label" for="inputNome">Nome</label>
+                    <div class="controls">
+                        <input type="text" id="inputNome" placeholder="Nome" class="input-block-level">
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">Email</label>
+                    <div class="controls">
+                        <input type="text" id="inputEmail" placeholder="Email" class="input-block-level">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="inputLogin">Login</label>
+                    <div class="controls">
+                        <input type="text" id="inputLogin" placeholder="Login">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Senha</label>
+                    <div class="controls">
+                        <input type="password" id="inputSenha" placeholder="Senha">
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+                    <label class="control-label" for="inputCpf">Cpf</label>
+                    <div class="controls">
+                        <input type="text" id="inputCpf" placeholder="Cpf">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <a id="salvar" href="#" class="btn btn-primary">Salvar</a>
+        </div>
+    </div>
+
+

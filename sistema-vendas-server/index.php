@@ -29,7 +29,7 @@ $app->get('/:controller/:action(/:parameter)', function($controller, $action, $p
 
     $classe = new $controller();
 
-    $retorno = call_user_func_array(array($classe, "get_" . $action), array($parameter);
+    $retorno = call_user_func_array(array($classe, "get_" . $action), array($parameter));
 
     echo "{'result':".json_encode($retorno)."}";
 
@@ -44,7 +44,7 @@ $app->post('/:controller/:action', function($controller, $action) use($app){
 
     $classe = new $controller();
 
-    $retorno = call_user_func_array(array($classe, "post_" . $action, array($request));
+    $retorno = call_user_func_array(array($classe, "post_" . $action), array($request));
 
     echo "{'result':" . json_encode($retorno) . "}";
 
